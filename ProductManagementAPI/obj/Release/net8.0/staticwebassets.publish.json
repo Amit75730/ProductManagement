@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "m2Zwl/cMzRlx0NWURubAylH6tYaS74t1xQFRG5e3EbE=",
+  "Source": "ProductManagementAPI",
+  "BasePath": "_content/ProductManagementAPI",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

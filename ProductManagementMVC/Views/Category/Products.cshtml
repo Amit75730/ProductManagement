@@ -1,0 +1,17 @@
+@model CategoryDTO
+
+<h2>@Model.Name</h2>
+<ul>
+    @foreach (var product in Model.Products)
+    {
+        <li>
+            <strong>@product.Name</strong> - $@product.Price
+            <form asp-action="AddToCart" asp-controller="Cart" method="post">
+                <input type="hidden" name="productId" value="@product.ProductId" />
+                <input type="number" name="quantity" value="1" min="1" />
+                <button type="submit">Add to Cart (+)</button>
+            </form>
+        </li>
+    }
+</ul>
+<a href="@Url.Action("Index", "Cart")">Go to Cart</a>

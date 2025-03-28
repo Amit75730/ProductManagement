@@ -1,0 +1,19 @@
+@model List<CartItemDTO>
+
+<h2>Your Cart</h2>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @item.ProductName - @item.Quantity x $@item.Price
+            <form asp-action="RemoveFromCart" asp-controller="Cart" method="post">
+                <input type="hidden" name="productId" value="@item.ProductId" />
+                <button type="submit">Remove</button>
+            </form>
+        </li>
+    }
+</ul>
+
+<form asp-action="PlaceOrder" asp-controller="Order" method="post">
+    <button type="submit">Checkout</button>
+</form>

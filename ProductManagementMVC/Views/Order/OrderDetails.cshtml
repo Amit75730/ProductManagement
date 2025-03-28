@@ -1,0 +1,40 @@
+@model ProductManagementMVC.Models.OrderView
+
+@{
+    ViewBag.Title = "Order Details";
+}
+
+<h2>Order Details - Order ID: @Model.OrderId</h2>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderItems)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p><strong>Total Amount: </strong>@Model.TotalAmount</p>
+<p><strong>Order Date: </strong>@Model.OrderDate.ToString("MM/dd/yyyy")</p>
+<p><strong>Payment Status: </strong>@Model.PaymentStatus</p>
+
+<a href="@Url.Action("OrderHistory", "Order")" class="btn btn-secondary">Back to Order History</a>
